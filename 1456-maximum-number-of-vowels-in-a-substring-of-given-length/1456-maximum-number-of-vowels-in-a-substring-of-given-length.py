@@ -6,14 +6,16 @@ class Solution:
         q = deque()
         ans = 0
         cur = 0
-        for i in range (len(s)):
-            if len(q) >= k:
-                if q[0] in vowels: cur -= 1
-                q.popleft()
-
-            if s[i] in vowels:
+        l = 0
+        r = 0
+        while (r < len(s)):
+            if s[r] in vowels:
                 cur += 1
-                if ans < cur: ans = cur
-            q.append(s[i])
-            
+            if cur > ans: ans = cur
+            r += 1
+            if r - l >= k:
+                if s[l] in vowels:
+                    cur -= 1
+                l += 1
+
         return ans
