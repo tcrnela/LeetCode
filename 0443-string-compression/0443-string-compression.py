@@ -11,8 +11,8 @@ class Solution:
                 chars[p] = ex
                 p += 1
                 if cnt > 1:
-                    for j in range (len(str(cnt))):
-                        chars[p] = str(cnt)[j]
+                    for j in str(cnt):
+                        chars[p] = j
                         p += 1
                     cnt = 1
                 ex = i
